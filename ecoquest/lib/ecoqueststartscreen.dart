@@ -1,6 +1,7 @@
+import 'package:ecoquest/character_selection_screen.dart';
 import 'package:flutter/material.dart';
 
-class EcoQuestStartScreen extends StatelessWidget {
+class StartScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final screenWidth = MediaQuery.of(context).size.width;
@@ -121,7 +122,21 @@ class EcoQuestStartScreen extends StatelessWidget {
                         borderRadius: BorderRadius.circular(30),
                       ),
                     ),
-                    onPressed: () {},
+                    onPressed: () {
+                     Navigator.pushReplacement(
+                      context,
+                      PageRouteBuilder(
+                        pageBuilder: (context, animation, secondaryAnimation) => CharacterSelection(),
+                        transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                          return FadeTransition(
+                            opacity: animation,
+                            child: child,
+                          );
+                        },
+                        transitionDuration: Duration(milliseconds: 600), // Customize speed
+                      ),
+                    );
+                    },
                     child: 
                     Padding(padding: EdgeInsets.all(8),
                     child: Text(
