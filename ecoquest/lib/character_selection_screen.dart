@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ecoquest/pollution_selection_screen.dart';
+import 'package:ecoquest/globals.dart';
 
 class CharacterSelection extends StatelessWidget {
   const CharacterSelection({super.key});
@@ -15,9 +17,10 @@ class CharacterSelection extends StatelessWidget {
           children: [
             Padding(
               padding: EdgeInsets.only(
-                  top: screenHeight * 0.05,
-                  left: screenWidth * 0.05,
-                  right: screenWidth * 0.05),
+                top: screenHeight * 0.05,
+                left: screenWidth * 0.05,
+                right: screenWidth * 0.05,
+              ),
               child: Text(
                 'Who would you like to join you on your Eco Quest!',
                 textAlign: TextAlign.center,
@@ -32,10 +35,20 @@ class CharacterSelection extends StatelessWidget {
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
-                  _characterCard('🌿 Leo – “Loves nature and recycling!”', 'assets/img/Leo/Leo_HandsFold.png',
-                      screenWidth),
-                  _characterCard('🍃 Maya – “Knows all about clean energy!”', 'assets/img/Maya/Maya_HandsFold.png',
-                      screenWidth),
+                  _characterCard(
+                    'Leo',
+                    '🌿 Leo – “Loves nature and recycling!”',
+                    'assets/img/Leo/HandsFold.png',
+                    screenWidth,
+                    context,
+                  ),
+                  _characterCard(
+                    'Maya',
+                    '🍃 Maya – “Knows all about clean energy!”',
+                    'assets/img/Maya/HandsFold.png',
+                    screenWidth,
+                    context,
+                  ),
                 ],
               ),
             ),
@@ -45,30 +58,63 @@ class CharacterSelection extends StatelessWidget {
     );
   }
 
-  Widget _characterCard(String name, String imagePath, double screenWidth) {
-    return Column(
-      mainAxisAlignment: MainAxisAlignment.center,
-      children: [
-        Text(
-          name,
-          style: TextStyle(
-            fontSize: screenWidth * 0.015,
-            fontFamily:'Aladdin',
-            color: Colors.white54,
-            fontWeight: FontWeight.bold,
+  Widget _characterCard(
+    String name,
+    String text,
+    String imagePath,
+    double screenWidth,
+    BuildContext context,
+  ) {
+    return GestureDetector(
+      onTap: () {
+        // Handle character selection here
+        selectedCharacter = name;
+        Navigator.pushReplacement(
+          context,
+          PageRouteBuilder(
+            pageBuilder:
+                (context, animation, secondaryAnimation) =>
+                    PollutionSelection(),
+            transitionsBuilder: (
+              context,
+              animation,
+              secondaryAnimation,
+              child,
+            ) {
+              return FadeTransition(opacity: animation, child: child);
+            },
+            transitionDuration: Duration(milliseconds: 600), // Customize speed
           ),
-        ),
-        SizedBox(height: 10),
-        Container(
-          width: screenWidth * 0.35,
-          height: screenWidth * 0.35,
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12),
-            color: Colors.white10,
+        );
+      },
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          Text(
+            name,
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: screenWidth * 0.015,
+              fontFamily: 'Aladdin',
+              color: Colors.white70,
+              fontWeight: FontWeight.bold,
+            ),
           ),
-          child: Image.asset(imagePath, fit: BoxFit.contain),
-        ),
-      ],
+          SizedBox(height: 10),
+          Container(
+            width: screenWidth * 0.35,
+            height: screenWidth * 0.35,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: Colors.white10,
+            ),
+            child: ClipRRect(
+              borderRadius: BorderRadius.circular(12),
+              child: Image.asset(imagePath, fit: BoxFit.contain),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
