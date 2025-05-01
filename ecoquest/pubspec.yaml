@@ -67,6 +67,11 @@ flutter:
     - assets/img/Air.png
     - assets/img/land.png
     - assets/img/water.png
+    - assets/img/Learning/Air/Maya/1.png
+    - assets/img/Learning/Air/Maya/2.png
+    - assets/img/Cloud.png
+    - assets/img/cloud_body.png
+    - assets/img/cloud_tail.png
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

@@ -15,7 +15,7 @@ class PollutionSelection extends StatelessWidget {
         transitionsBuilder: (context, animation, secondaryAnimation, child) {
           return FadeTransition(opacity: animation, child: child);
         },
-        transitionDuration: const Duration(milliseconds: 600),
+        transitionDuration: const Duration(milliseconds: 1000),
       ),
     );
   }

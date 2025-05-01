@@ -1,3 +1,3 @@
-String selectedCharacter = 'Leo';
+String selectedCharacter = '';
 String learningSection = '';
-int page = 0;
+int page = 1;
