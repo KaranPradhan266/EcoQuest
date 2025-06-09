@@ -76,6 +76,7 @@ class _LearningSectionState extends State<LearningSection>
   // Advance to next text in sequence
   void updateText() {
     setState(() => scale = 0.0);
+    isEnglish = true;
     Future.delayed(const Duration(milliseconds: 50), () {
       setState(() {
         final data = currentData;
