@@ -1,5 +1,6 @@
 import 'package:ecoquest/character_selection_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:ecoquest/quiz_screen.dart';
 
 class StartScreen extends StatelessWidget {
   @override
@@ -186,7 +187,7 @@ class StartScreen extends StatelessWidget {
                           Navigator.pushReplacement(
                             context,
                             PageRouteBuilder(
-                              pageBuilder: (context, animation, secondaryAnimation) => CharacterSelection(),
+                              pageBuilder: (context, animation, secondaryAnimation) => QuizScreen(),
                               transitionsBuilder: (context, animation, secondaryAnimation, child) {
                                 return FadeTransition(opacity: animation, child: child);
                               },
