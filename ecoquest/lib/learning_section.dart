@@ -89,7 +89,7 @@ final List<List<String>> soilENG = [
     "This is called solid waste pollution – one of the toughest soil villains!",
   ],
   [
-    "But that’s not all… look at those yellowing plants over there.",
+   "But that’s not all… look at those yellowing plants over there.",
     "Pesticides and chemical spills can kill beneficial bugs and plants in the soil.",
     "This kind of pollution is called chemical contamination.",
     "Tap the little earthworm to learn how we can restore healthy, fertile soil!",
@@ -125,6 +125,8 @@ final List<List<String>> soilSPA = [
     "¿Ves toda esa basura en el suelo? Las bolsas de plástico, las latas y los aparatos electrónicos viejos pueden contaminar el suelo.",
     "Las toxinas como el plomo y el mercurio de las baterías y los desechos electrónicos se filtran profundamente en la tierra.",
     "Esto se llama contaminación por residuos sólidos: ¡uno de los villanos más duros del suelo!",
+  ],
+  [
     "Pero eso no es todo… mira esas plantas amarillentas allí.",
     "Los pesticidas y los derrames de productos químicos pueden matar insectos y plantas beneficiosas en el suelo.",
     "Este tipo de contaminación se llama contaminación química.",
@@ -147,8 +149,6 @@ final List<List<String>> soilSPA = [
       "¡Bien hecho! ¡Estás aprendiendo rápido!",
       "¡Pero esa no es la única villana en nuestra historia!",
       "Mira allá… ¿Ves aquella fábrica con humo saliendo de la chimenea?",
-    ],
-    [
       "Las fábricas queman combustible y liberan gases como dióxido de azufre y partículas.",
       "Este tipo de contaminación se llama contaminación industrial.",
       "¡Toquemos la nube de humo para obtener más información!",
@@ -163,7 +163,10 @@ final List<List<String>> soilSPA = [
 
   // Play or pause current section audio
   Future<void> _toggleAudio() async {
-    final assetPath = 'audio/Mountains.mp3';
+    final lang = isEnglish ? 'EN' : 'SP';
+    final p = page-1;
+    final t = tab-1;
+    final assetPath = 'audio/$learningSection/$lang/$p/$t.mp3';
     if (_isPlaying) {
       await _audioPlayer.pause();
       setState(() => _isPlaying = false);
