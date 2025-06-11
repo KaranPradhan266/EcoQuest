@@ -1,5 +1,6 @@
 import 'package:ecoquest/globals.dart';
 import 'package:flutter/material.dart';
+import 'package:ecoquest/pollution_selection_screen.dart';
 
 class LearningSection extends StatefulWidget {
   const LearningSection({super.key});
@@ -30,12 +31,10 @@ class _LearningSectionState extends State<LearningSection>
       "Well done! You’re learning fast!",
       "But that's not the only villain in our story!",
       "Look over there… see that factory with smoke coming out of its chimney?",
-    ],
-    [
       "Factories burn fuel and release gases like sulfur dioxide and particulate matter.",
       "This kind of pollution is called industrial pollution.",
       "Let’s tap the smoke cloud to learn more!",
-    ]
+    ],
   ];
 
   final List<List<String>> airSPA = [
@@ -56,7 +55,7 @@ class _LearningSectionState extends State<LearningSection>
       "Las fábricas queman combustible y liberan gases como dióxido de azufre y partículas.",
       "Este tipo de contaminación se llama contaminación industrial.",
       "¡Toquemos la nube de humo para obtener más información!",
-    ]
+    ],
   ];
 
   // Getter for currently selected data
@@ -89,8 +88,9 @@ class _LearningSectionState extends State<LearningSection>
             tab = 1;
             currentText = data[page - 1][0];
           } else {
-            currentText =
-                isEnglish ? "That's all for now!" : "¡Eso es todo por ahora!";
+            Navigator.of(
+              context,
+            ).push(MaterialPageRoute(builder: (_) => const PollutionSelection()));
           }
         }
         scale = 1.0;
@@ -122,10 +122,7 @@ class _LearningSectionState extends State<LearningSection>
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        backgroundColor: Colors.transparent,
-        elevation: 0,
-      ),
+      appBar: AppBar(backgroundColor: Colors.transparent, elevation: 0),
 
       floatingActionButtonLocation: FloatingActionButtonLocation.endFloat,
       floatingActionButton: Padding(
