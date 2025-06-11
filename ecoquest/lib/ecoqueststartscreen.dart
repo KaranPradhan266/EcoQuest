@@ -161,6 +161,57 @@ class StartScreen extends StatelessWidget {
                   ),
                 ),
 
+                 Expanded(
+                  flex: 3,
+                  child: Center(
+                    child: Container(
+                      width: screenWidth * 0.2,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          colors: [Color(0xFFC1E376), Color(0xFF1C9A33)],
+                          begin: Alignment.topLeft,
+                          end: Alignment.bottomRight,
+                        ),
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                      child: ElevatedButton(
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.transparent,
+                          shadowColor: Colors.transparent,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(30),
+                          ),
+                        ),
+                        onPressed: () {
+                          Navigator.pushReplacement(
+                            context,
+                            PageRouteBuilder(
+                              pageBuilder: (context, animation, secondaryAnimation) => CharacterSelection(),
+                              transitionsBuilder: (context, animation, secondaryAnimation, child) {
+                                return FadeTransition(opacity: animation, child: child);
+                              },
+                              transitionDuration: Duration(milliseconds: 600),
+                            ),
+                          );
+                        },
+                        child: Padding(
+                          padding: EdgeInsets.all(8),
+                          child: Text(
+                            'QUIZ',
+                            style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black,
+                              fontSize: screenWidth * 0.02,
+                              fontFamily: 'Inter',
+                            ),
+                          ),
+                        ),
+                      ),
+                    ),
+                  ),
+                ),
+
+
                 // Bottom Section - Fun Fact
                 Expanded(
                   flex: 2,
