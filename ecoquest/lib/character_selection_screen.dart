@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ecoquest/pollution_selection_screen.dart';
 import 'package:ecoquest/globals.dart';
+import 'package:ecoquest/ecoqueststartscreen.dart';
 
 class CharacterSelection extends StatelessWidget {
   const CharacterSelection({super.key});
@@ -12,6 +13,21 @@ class CharacterSelection extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: const Color(0xFF102614),
+      floatingActionButton: FloatingActionButton(
+        tooltip: 'Home',
+        child: const Icon(Icons.home),
+        onPressed: () {
+          Navigator.pushReplacement(
+            context,
+            PageRouteBuilder(
+              pageBuilder: (_, __, ___) => StartScreen(),
+              transitionsBuilder: (_, anim, __, child) =>
+                FadeTransition(opacity: anim, child: child),
+              transitionDuration: const Duration(milliseconds: 500),
+            ),
+          );
+        },
+      ),
       body: SafeArea(
         child: Column(
           children: [
