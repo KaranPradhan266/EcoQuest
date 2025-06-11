@@ -30,6 +30,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  
+  audioplayers: ^6.4.0
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -70,9 +72,15 @@ flutter:
     - assets/img/water.png
     - assets/img/Learning/Air/Maya/1.png
     - assets/img/Learning/Air/Maya/2.png
+    - assets/img/Learning/Water/Maya/1.png
+    - assets/img/Learning/Water/Maya/2.png
+    - assets/img/Learning/Soil/Maya/1.png
+    - assets/img/Learning/Soil/Maya/2.png
+    - assets/img/Learning/Soil/Maya/3.png
     - assets/img/Cloud.png
     - assets/img/cloud_body.png
     - assets/img/cloud_tail.png
+    - assets/audio/Mountains.mp3
     
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images
